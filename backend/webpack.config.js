@@ -1,7 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./index.ts",
+  entry: "./src/index.ts",
+  target: "node",
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],

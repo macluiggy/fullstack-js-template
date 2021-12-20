@@ -1,13 +1,15 @@
 import express from "express";
+import indexRoute from "./routes/index.route";
 const app = express();
+
+// middlewares
+app.use(express.json());
+
+//routes
+app.use("/", indexRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
-});
-
-let port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
 });
 
 export default app;
