@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const CURRENT_WORKING_DIR = process.cwd() || __dirname;
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 console.log(CURRENT_WORKING_DIR);
 
 const rulesForJavaScript = {
@@ -34,10 +35,13 @@ module.exports = {
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
   output: {
-    path: path.resolve(CURRENT_WORKING_DIR, "./dist"),
+    path: path.resolve(CURRENT_WORKING_DIR, "./build"),
     filename: "bundle.js",
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({ template: path.resolve("./src/index.html") }),
+  ],
   devServer: {
     static: path.resolve(CURRENT_WORKING_DIR, "./dist"),
     hot: true,
