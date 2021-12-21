@@ -1,0 +1,1 @@
+web: cd /frontend/ && npm install && npm run build && node /dist/bundle.js
